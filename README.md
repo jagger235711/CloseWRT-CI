@@ -6,8 +6,6 @@
 
 CONFIG_PACKAGE_luci-app-diskman=y
 
-CONFIG_PACKAGE_luci-app-ssr-plus=y
-
 CONFIG_PACKAGE_luci-app-autoreboot=y
 
 CONFIG_PACKAGE_luci-app-docker=y
