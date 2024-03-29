@@ -1,3 +1,19 @@
+# 自定义说明
+
+只编译rax3000m（nand）、nx30pro固件
+
+## 包含插件
+
+CONFIG_PACKAGE_luci-app-diskman=y
+
+CONFIG_PACKAGE_luci-app-ssr-plus=y
+
+CONFIG_PACKAGE_luci-app-autoreboot=y
+
+CONFIG_PACKAGE_luci-app-docker=y
+
+CONFIG_PACKAGE_luci-app-passwall2=y
+
 # CloseWRT-CI
 云编译CloseWRT固件
 
