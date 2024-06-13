@@ -1,14 +1,21 @@
-#CI项目名
-name: MTK-7981-hanwckf
+#CI项目
+name: CWRT-ONE
 
+#CI计划
 on:
-  #自动编译：
+  #自动编译：周五早上4点
   #github使用UTC时区 北京时间比Github所使用时区快8个小时
   #每周五早上8点开始编译
   schedule:
-    - cron: 0 0 * * 5
+    - cron: 0 20 * * 4
   #手动编译
   workflow_dispatch:
+    inputs:
+      TEST:
+        description: '仅输出配置文件，不编译固件。'
+        default: 'false'
+        required: false
+        type: boolean
 
 #CI权限
 permissions: write-all
@@ -32,8 +39,10 @@ jobs:
       #默认地址
       WRT_IP: 192.168.10.1
       #默认源码
-      WRT_URL: https://github.com/hanwckf/immortalwrt-mt798x.git
+      WRT_URL: https://github.com/Aabandon/immortalwrt-mt798x.git
       #默认分支
-      WRT_BRANCH: openwrt-21.02
-      #内存压缩，可选参数，默认关闭，256内存推荐开启
-      #WRT_SHRINK: true
+      WRT_BRANCH: test
+      #仅输出配置文件
+      WRT_TEST: ${{inputs.TEST || 'false'}}
+      #内存压缩，256内存推荐开启
+      WRT_SHRINK: false
