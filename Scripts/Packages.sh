@@ -13,7 +13,7 @@ UPDATE_PACKAGE() {
 	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
 
 	if [[ $PKG_SPECIAL == "pkg" ]]; then
-		cp -rf $(find ./$REPO_NAME/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune) ./
+		cp -rf $(find ./$REPO_NAME/*/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune) ./
 		rm -rf ./$REPO_NAME/
 	elif [[ $PKG_SPECIAL == "name" ]]; then
 		mv -f $REPO_NAME $PKG_NAME
@@ -73,6 +73,7 @@ UPDATE_VERSION "dns2tcp" "zfl9/dns2tcp"
 UPDATE_VERSION "hysteria" "apernet/hysteria"
 UPDATE_VERSION "ipt2socks" "zfl9/ipt2socks"
 UPDATE_VERSION "microsocks" "rofl0r/microsocks"
+UPDATE_VERSION "mihomo" "metacubex/mihomo"
 UPDATE_VERSION "mosdns" "IrineSistiana/mosdns"
 UPDATE_VERSION "naiveproxy" "klzgrad/naiveproxy"
 UPDATE_VERSION "neturl" "golgote/neturl"
