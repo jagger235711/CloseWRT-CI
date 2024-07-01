@@ -8,7 +8,7 @@ UPDATE_PACKAGE() {
 	local PKG_SPECIAL=$4
 	local REPO_NAME=$(echo $PKG_REPO | cut -d '/' -f 2)
 
-	rm -rf $(find ../feeds/luci/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune)
+	rm -rf $(find ../feeds/luci/ ../feeds/packages/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune)
 
 	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
 
@@ -20,6 +20,7 @@ UPDATE_PACKAGE() {
 	fi
 }
 
+#UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
 UPDATE_PACKAGE "design" "gngpp/luci-theme-design" "js"
 UPDATE_PACKAGE "design-config" "gngpp/luci-app-design-config" "master"
 UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "master"
@@ -67,7 +68,7 @@ UPDATE_VERSION() {
     done
 }
 
-#UPDATE_VERSION "软件包名" "项目地址" "测试版true（可选，默认为否）"
+#UPDATE_VERSION "软件包名" "项目地址" "测试版，true，可选，默认为否"
 UPDATE_VERSION "brook" "txthinking/brook"
 UPDATE_VERSION "dns2tcp" "zfl9/dns2tcp"
 UPDATE_VERSION "hysteria" "apernet/hysteria"
