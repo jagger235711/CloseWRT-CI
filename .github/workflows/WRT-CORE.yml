@@ -31,12 +31,10 @@ on:
       WRT_PACKAGE:
         required: false
         type: string
-      WRT_TEST:
-        default: 'false'
+      WRT_ADJUST:
         required: false
         type: string
-      WRT_SHRINK:
-        default: 'false'
+      WRT_TEST:
         required: false
         type: string
 
@@ -51,8 +49,8 @@ env:
   WRT_IP: ${{inputs.WRT_IP}}
   WRT_PW: ${{inputs.WRT_PW}}
   WRT_PACKAGE: ${{inputs.WRT_PACKAGE}}
+  WRT_ADJUST: ${{inputs.WRT_ADJUST}}
   WRT_TEST: ${{inputs.WRT_TEST}}
-  WRT_SHRINK: ${{inputs.WRT_SHRINK}}
 
 jobs:
   wrt_core:
@@ -98,7 +96,7 @@ jobs:
         run: |
           export WRT_DATE=$(TZ=UTC-8 date +"%y.%m.%d_%H.%M.%S")
           export WRT_REPO=$(basename $GITHUB_WORKSPACE)
-          export WRT_SOURCE=$(echo $WRT_URL | cut -d '/' -f 4)
+          export WRT_SOURCE=$(echo $WRT_URL | cut -d '/' -f 4)-$WRT_BRANCH
           export WRT_TYPE=$(sed -n "1{s/^#//;s/\r$//;p;q}" $GITHUB_WORKSPACE/Config/$WRT_TARGET.txt)
 
           echo "WRT_DATE=$WRT_DATE" >> $GITHUB_ENV
@@ -174,7 +172,7 @@ jobs:
 
           rm -rf ./tmp* ./.config*
 
-          cat $GITHUB_WORKSPACE/Config/$WRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt $GITHUB_WORKSPACE/Config/Package.txt >> .config
+          cat $GITHUB_WORKSPACE/Config/$WRT_TARGET.txt $GITHUB_WORKSPACE/Config/GENERAL.txt $GITHUB_WORKSPACE/Config/PACKAGE.txt >> .config
 
           $GITHUB_WORKSPACE/Scripts/Settings.sh
 
@@ -199,7 +197,7 @@ jobs:
           cd ./wrt/
 
           echo "======================="
-          lscpu | egrep "name|Core|Thread"
+          lscpu | grep -E "name|Core|Thread"
           echo "======================="
           df -h
           echo "======================="
@@ -239,7 +237,8 @@ jobs:
 
             全系带闭源硬件加速，别问了！
 
-            源码：${{env.WRT_SOURCE}}
+            源码：${{env.WRT_URL}}
+            分支：${{env.WRT_BRANCH}}
             平台：${{env.WRT_TARGET}}
             设备：${{env.WRT_TYPE}}
             地址：${{env.WRT_IP}}
