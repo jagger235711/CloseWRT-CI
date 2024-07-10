@@ -2,8 +2,8 @@
 CONFIG_PACKAGE_luci-app-diskman=y
 CONFIG_PACKAGE_luci-app-autoreboot=y
 CONFIG_PACKAGE_luci-app-passwall2=y
-CONFIG_PACKAGE_luci-app-tinyfilemanager=y
 #删除插件
+CONFIG_PACKAGE_luci-app-tinyfilemanager=n
 CONFIG_PACKAGE_luci-app-docker=n
 CONFIG_PACKAGE_luci-app-ssr-plus=n
 CONFIG_PACKAGE_luci-app-uugamebooster=n
