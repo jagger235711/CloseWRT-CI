@@ -4,8 +4,6 @@
 
 ## 包含插件
 
-CONFIG_PACKAGE_luci-app-diskman=y
-
 CONFIG_PACKAGE_luci-app-autoreboot=y
 
 CONFIG_PACKAGE_luci-app-passwall2=y
