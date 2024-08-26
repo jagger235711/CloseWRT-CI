@@ -38,7 +38,7 @@ UPDATE_PACKAGE "passwall2" "xiaorouji/openwrt-passwall2" "main"
 # UPDATE_PACKAGE "luci-app-wolplus" "VIKINGYFY/luci-app-wolplus" "main"
 
 UPDATE_PACKAGE "luci-app-alist" "sbwml/luci-app-alist" "master"
-UPDATE_PACKAGE "luci-app-aria2" "NueXini/NueXini_Packages" "main"
+# UPDATE_PACKAGE "luci-app-aria2" "NueXini/NueXini_Packages" "main" "pkg"
 
 #更新软件包版本
 UPDATE_VERSION() {
