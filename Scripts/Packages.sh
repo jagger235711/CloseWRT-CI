@@ -29,7 +29,7 @@ UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "master"
 
 # UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 # UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main"
-UPDATE_PACKAGE "passwall2" "xiaorouji/openwrt-passwall2" "main"
+UPDATE_PACKAGE "passwall2" "xiaorouji/openwrt-passwall2" "main" "pkg"
 # UPDATE_PACKAGE "ssr-plus" "fw876/helloworld" "master"
 
 # UPDATE_PACKAGE "advancedplus" "VIKINGYFY/luci-app-advancedplus" "main"
@@ -37,7 +37,7 @@ UPDATE_PACKAGE "passwall2" "xiaorouji/openwrt-passwall2" "main"
 # UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
 # UPDATE_PACKAGE "luci-app-wolplus" "VIKINGYFY/luci-app-wolplus" "main"
 
-UPDATE_PACKAGE "luci-app-alist" "sbwml/luci-app-alist" "master"
+# UPDATE_PACKAGE "luci-app-alist" "sbwml/luci-app-alist" "master"
 # UPDATE_PACKAGE "luci-app-aria2" "NueXini/NueXini_Packages" "main" "pkg"
 
 #更新软件包版本
@@ -60,7 +60,6 @@ UPDATE_VERSION() {
 		local PKG_VER=$(curl -sL "https://api.github.com/repos/$PKG_REPO/releases" | jq -r "map(select(.prerelease|$PKG_MARK)) | first | .tag_name")
 		local NEW_VER=$(echo $PKG_VER | sed "s/.*v//g; s/_/./g")
 		local NEW_HASH=$(curl -sL "https://codeload.github.com/$PKG_REPO/tar.gz/$PKG_VER" | sha256sum | cut -b -64)
-
 		local OLD_VER=$(grep -Po "PKG_VERSION:=\K.*" "$PKG_FILE")
 
 		echo "$OLD_VER $PKG_VER $NEW_VER $NEW_HASH"
