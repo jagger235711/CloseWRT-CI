@@ -6,8 +6,8 @@ on:
   #自动编译：周五早上4点
   #github使用UTC时区 北京时间比Github所使用时区快8个小时
   #每周五早上8点开始编译
-  # schedule:
-  #   - cron: 0 20 * * 4
+  schedule:
+    - cron: 0 20 * * 4
   #手动编译
   workflow_dispatch:
     inputs:
