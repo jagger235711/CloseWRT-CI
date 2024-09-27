@@ -40,9 +40,9 @@ UPDATE_PACKAGE "passwall2" "xiaorouji/openwrt-passwall2" "main" "pkg"
 # UPDATE_PACKAGE "luci-app-alist" "sbwml/luci-app-alist" "master"
 # UPDATE_PACKAGE "luci-app-aria2" "NueXini/NueXini_Packages" "main" "pkg"
 
-if [[ $WRT_BRANCH == *"23.05"* ]]; then
-	UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
-fi
+# if [[ $WRT_BRANCH == *"23.05"* ]]; then
+# 	UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
+# fi
 
 #更新软件包版本
 UPDATE_VERSION() {

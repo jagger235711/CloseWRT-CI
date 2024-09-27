@@ -35,6 +35,6 @@ fi
 if [[ $WRT_BRANCH == *"23.05"* ]]; then
 	sed -i '/luci-app-openclash/d' ./.config
 
-	echo "CONFIG_PACKAGE_luci-app-homeproxy=y" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-homeproxy=n" >> ./.config
 	echo "CONFIG_PACKAGE_luci-app-openclash=n" >> ./.config
 fi
