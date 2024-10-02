@@ -67,9 +67,9 @@ jobs:
       #默认密码，仅作提示，修改无用
       WRT_PW: 无
       #源码链接
-      WRT_REPO: https://github.com/hanwckf/immortalwrt-mt798x.git
+      WRT_REPO: https://github.com/padavanonly/immortalwrt-mt798x-23.05
       #源码分支
-      WRT_BRANCH: openwrt-21.02
+      WRT_BRANCH: openwrt-23.05
       #内存低占用模式
       WRT_ADJUST: ${{inputs.ADJUST}}
       #插件调整
