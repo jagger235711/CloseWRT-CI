@@ -19,7 +19,8 @@ on:
       BRANCH:
         default: 'openwrt-21.02'
         required: true
-        type: string
+        type: choice
+        options: [openwrt-21.02, openwrt-23.05]
       ADJUST:
         description: '内存低占用模式，默认关闭。'
         default: 'false'
