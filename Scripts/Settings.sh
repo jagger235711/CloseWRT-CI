@@ -34,3 +34,17 @@ fi
 if [ -n "$WRT_PACKAGE" ]; then
 	echo "$WRT_PACKAGE" >> ./.config
 fi
+
+#23.05专用
+if [[ $WRT_BRANCH == *"23.05"* ]]; then
+	sed -i '/luci-app-openclash/d' ./.config
+	sed -i '/luci-app-upnp/d' ./.config
+	sed -i '/miniupnpd/d' ./.config
+
+	echo "CONFIG_PACKAGE_luci-app-openclash=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-upnp=n" >> ./.config
+	echo "CONFIG_PACKAGE_miniupnpd=n" >> ./.config
+
+	echo "CONFIG_PACKAGE_luci-app-homeproxy=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-upnp-mtk-adjust=y" >> ./.config
+fi
