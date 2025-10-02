@@ -4,10 +4,7 @@ CONFIG_PACKAGE_luci-app-passwall2=n
 CONFIG_PACKAGE_luci-app-wolplus=y
 CONFIG_PACKAGE_luci-app-autoreboot=y
 CONFIG_PACKAGE_luci-app-gecoosac=y
-CONFIG_PACKAGE_luci-app-partexp=y
 CONFIG_PACKAGE_luci-app-upnp=y
-#删除插件
-CONFIG_PACKAGE_luci-app-wol=n
 #参数调整
 CONFIG_CCACHE=y
 CONFIG_DEVEL=y
